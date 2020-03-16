@@ -61,7 +61,7 @@ $ git push heroku master --app <NAME>
 
 // finish the app by enabling the mpm fix and set the stack to container
 $ heroku labs:enable --app <NAME> runtime-new-layer-extract
-$ heroku stack:set container
+$ heroku stack:set --app <NAME> container
 ```
 
 ### Troubleshooting Heroku
