@@ -14,6 +14,7 @@
 .env
 .env.backup
 .phpunit.result.cache
+ngrok.yml
 Homestead.json
 Homestead.yaml
 

@@ -1,0 +1,9 @@
+---
+web_addr: 0.0.0.0:4040
+authtoken:
+region: eu
+tunnels:
+  web:
+    proto: http
+    addr: 8000
+    subdomain: project-slug

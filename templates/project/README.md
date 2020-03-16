@@ -56,10 +56,12 @@ $ heroku container:login
 $ heroku container:push --app <NAME> web
 $ heroku container:release --app <NAME> web
 
-// or let Heroku build the the image
+// you can also let Heroku build the image
+$ git push heroku master --app <NAME>
+
+// finish the app by enabling the mpm fix and set the stack to container
 $ heroku labs:enable --app <NAME> runtime-new-layer-extract
 $ heroku stack:set container
-$ git push heroku master --app <NAME>
 ```
 
 ### Troubleshooting Heroku
@@ -88,10 +90,10 @@ When you need to test an external service connecting to the server, you need to 
 You can use ngrok for this to create a secure tunnel between your computer and a publicly accessible endpoint.
 
 ```bash
-$ ngrok start --config ./ngrok.yml web`
+$ ngrok start --config ./ngrok.yml web
 ```
 
-> Make sure you copied `ngrok.yml.example` to `ngrok.yml` and set the appropiate settings
+> Make sure you copied `ngrok.example.yml` to `ngrok.yml` and set the appropiate settings
 
 
 ## Coding rules
