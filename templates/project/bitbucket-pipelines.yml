@@ -1,0 +1,94 @@
+---
+image: bycedric/laravel-test:7.3
+definitions:
+  caches:
+    babel: .babel
+    npm: ~/.npm
+    sonar: ~/.sonar/cache
+pipelines:
+  pull-requests:
+    '**':
+      - parallel:
+          - step:
+              name: Validate commits
+              image: peakfijn/commitlint
+              script:
+                - commitlint --to HEAD
+          - step:
+              name: Validate code
+              caches:
+                - npm
+                - composer
+              script:
+                - cp .env.example .env
+                - npm ci
+                - npm run production
+                - composer install
+                - composer lint
+                - composer test
+          - step:
+              name: Analyse code
+              image: bycedric/ci-sonarcloud
+              caches:
+                - sonar
+              script:
+                - sonar-bitbucket
+  branches:
+    develop:
+      - step:
+          name: Validate code
+          caches:
+            - npm
+            - composer
+          artifacts:
+            - test-reports/**
+          script:
+            - cp .env.example .env
+            - npm ci
+            - npm run production
+            - composer install
+            - composer lint
+            - composer test
+      - step:
+          name: Analyse code
+          image: bycedric/ci-sonarcloud
+          caches:
+            - sonar
+          script:
+            - sonar-bitbucket
+      - step:
+          name: Create new release
+          image: peakfijn/release-laravel
+          trigger: manual
+          script:
+            - semantic-release
+    master:
+      - step:
+          name: Deploy to testing
+          image: bycedric/ci-heroku
+          deployment: testing
+          script:
+            - heroku whoami
+            - git status
+            - git fetch --unshallow || git fetch
+            - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_TESTING.git HEAD:master --force
+      - step:
+          name: Deploy to staging
+          image: bycedric/ci-heroku
+          deployment: staging
+          trigger: manual
+          script:
+            - heroku whoami
+            - git status
+            - git fetch --unshallow || git fetch
+            - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_STAGING.git HEAD:master --force
+      - step:
+          name: Deploy to production
+          image: bycedric/ci-heroku
+          deployment: production
+          trigger: manual
+          script:
+            - heroku whoami
+            - git status
+            - git fetch --unshallow || git fetch
+            - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_PRODUCTION.git HEAD:master --force

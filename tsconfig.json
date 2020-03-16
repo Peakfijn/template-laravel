@@ -1,0 +1,14 @@
+{
+	"extends": "./tsconfig.shared.json",
+	"files": [],
+	"include": [],
+	"compilerOptions": {
+		"composite": true,
+	},
+	"references": [
+		{ "path": "packages/laravel-semantic-release" },
+	],
+	"exclude": [
+		"template"
+	]
+}

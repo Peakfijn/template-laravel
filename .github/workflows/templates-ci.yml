@@ -1,0 +1,54 @@
+---
+name: Templates CI
+on:
+  pull_request:
+    paths:
+      - 'templates/**'
+      - '!templates/package/**'
+  push:
+    branches:
+      - develop
+    paths:
+      - 'templates/**'
+      - '!templates/package/**'
+  schedule:
+    - cron: '0 8 * * 1'
+jobs:
+  backend:
+    name: Install, validate and build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [7.3, 7.4]
+        template: [project]
+    steps:
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer, phpcs, phpunit
+      - run: composer install
+        working-directory: templates/${{ matrix.template }}
+      - run: composer lint
+        working-directory: templates/${{ matrix.template }}
+      - run: composer test
+        working-directory: templates/${{ matrix.template }}
+      - run: composer build
+        working-directory: templates/${{ matrix.template }}
+  frontend:
+    name: Install, validate and build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [10, 12]
+        template: [project]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+        working-directory: templates/${{ matrix.template }}
+      - run: npm run lint
+        working-directory: templates/${{ matrix.template }}
+      - run: npm run test
+        working-directory: templates/${{ matrix.template }}

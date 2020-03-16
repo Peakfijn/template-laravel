@@ -1,0 +1,40 @@
+{
+	"private": true,
+	"name": "@peakfijn/template-laravel",
+	"version": "0.0.0",
+	"description": "Packages and template to create a new project for Laravel with Peakfijn standards",
+	"main": "index.js",
+	"author": "Cedric van Putten <cedric@peakfijn.nl>",
+	"license": "MIT",
+	"scripts": {
+		"postinstall": "lerna bootstrap",
+		"test": "jest",
+		"lint": "eslint ./packages --ext js,jsx,ts,tsx || echo 'still waiting first package'; exit 0",
+		"start": "tsc --watch",
+		"build": "tsc --build",
+		"clean": "tsc -b --clean && lerna clean --yes && lerna exec 'git clean -xdf build package-lock.json'",
+		"publish": "tsc -b --clean && lerna exec 'git clean -xdf build package-lock.json' && tsc -b && lerna publish",
+		"commit": "git-cz"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.7",
+		"@babel/preset-env": "^7.8.7",
+		"@babel/preset-typescript": "^7.8.3",
+		"@lerna/project": "^3.18.0",
+		"@peakfijn/config-commitizen": "^2.1.0",
+		"@peakfijn/config-commitlint": "^2.1.0",
+		"@typescript-eslint/eslint-plugin": "^2.12.0",
+		"@typescript-eslint/parser": "^2.12.0",
+		"babel-jest": "^25.1.0",
+		"eslint": "^6.5.1",
+		"eslint-plugin-jest": "^23.0.5",
+		"jest": "^25.1.0",
+		"lerna": "^3.18.0",
+		"typescript": "^3.6.4"
+	},
+	"config": {
+		"commitizen": {
+			"path": "@peakfijn/config-commitizen"
+		}
+	}
+}

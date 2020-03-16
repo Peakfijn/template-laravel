@@ -1,0 +1,48 @@
+{
+	"private": true,
+	"name": "project-slug",
+	"version": "0.0.0",
+	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": "git@bitbucket.org:peakfijn/project-slug.git"
+	},
+	"scripts": {
+		"dev": "npm run development",
+		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "npm run development -- --watch",
+		"watch-poll": "npm run watch -- --watch-poll",
+		"hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"prod": "npm run production",
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"lint": "eslint resources",
+		"start": "npm run watch",
+		"build": "npm run prod",
+		"commit": "git-cz"
+	},
+	"dependencies": {
+		"lodash": "^4.17.13",
+		"axios": "^0.19.2"
+	},
+	"devDependencies": {
+		"@peakfijn/config-commitizen": "^2.1.0",
+		"@peakfijn/config-commitlint": "^2.1.0",
+		"cross-env": "^7.0",
+		"eslint": "^6.8.0",
+		"laravel-mix": "^5.0.1",
+		"resolve-url-loader": "^3.1.0",
+		"sass": "^1.15.2",
+		"sass-loader": "^8.0.0",
+		"vue-template-compiler": "^2.6.11"
+	},
+	"commitlint": {
+		"extends": [
+			"@peakfijn/config-commitlint"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "@peakfijn/config-commitizen"
+		}
+	}
+}
