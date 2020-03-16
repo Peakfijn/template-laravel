@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<ruleset name="PEAKFIJN">
+	<description>A coding standard, based on the PSR-12 guideliness.</description>
+
+	<arg name="encoding" value="utf-8" />
+	<arg name="extensions" value="php" />
+	<arg name="colors" />
+
+	<rule ref="PSR12">
+		<exclude name="Generic.WhiteSpace.ScopeIndent" />
+		<exclude name="Generic.WhiteSpace.DisallowTabIndent" />
+	</rule>
+
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
+	<rule ref="Generic.WhiteSpace.ScopeIndent">
+		<properties>
+			<property name="tabIndent" value="true" />
+			<property
+				name="ignoreIndentationTokens"
+				type="array"
+				value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"
+			/>
+		</properties>
+	</rule>
+
+	<rule ref="PSR1.Classes.ClassDeclaration">
+		<exclude-pattern>*/database/factories/*</exclude-pattern>
+		<exclude-pattern>*/database/migrations/*</exclude-pattern>
+		<exclude-pattern>*/database/seeds/*</exclude-pattern>
+	</rule>
+
+	<file extension="php">.</file>
+
+	<exclude-pattern>*/*.blade.php</exclude-pattern>
+	<exclude-pattern type="relative">^bootstrap</exclude-pattern>
+	<exclude-pattern type="relative">^public</exclude-pattern>
+	<exclude-pattern type="relative">^resources/assets</exclude-pattern>
+	<exclude-pattern type="relative">^resources/views</exclude-pattern>
+	<exclude-pattern type="relative">^storage</exclude-pattern>
+	<exclude-pattern type="relative">^vendor</exclude-pattern>
+	<exclude-pattern type="relative">^nova</exclude-pattern>
+</ruleset>

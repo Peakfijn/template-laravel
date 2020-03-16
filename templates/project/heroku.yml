@@ -1,0 +1,18 @@
+setup:
+  config:
+    APP_DEBUG: false
+    APP_ENV: production
+    APP_NAME: project-slug
+build:
+  docker:
+    web: Dockerfile
+release:
+  image: web
+  command:
+    - php artisan migrate --force
+run:
+  web: apachectl -DFOREGROUND
+  # job:
+  #   image: web
+  #   command:
+  #     - php artisan queue:restart && php artisan queue:work --tries=3 --timeout=14400

@@ -1,0 +1,48 @@
+{
+	"name": "@peakfijn/laravel-semantic-release",
+	"version": "0.0.0",
+	"description": "Prepared config for semantic releases with Laravel",
+	"keywords": [
+		"semantic",
+		"release",
+		"laravel",
+		"peakfijn"
+	],
+	"author": "Cedric van Putten <me@bycedric.com>",
+	"license": "MIT",
+	"homepage": "https://github.com/peakfijn/template-laravel/tree/master/packages/laravel-semantic-release#readme",
+	"bugs": {
+		"url": "https://github.com/peakfijn/template-laravel/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/peakfijn/template-laravel.git"
+	},
+	"directories": {
+		"lib": "src",
+		"tests": "tests"
+	},
+	"main": "build/config.js",
+	"files": [
+		"build"
+	],
+	"bin": {
+		"semantic-release": "build/bin.js"
+	},
+	"dependencies": {
+		"@semantic-release/changelog": "^5.0.0",
+		"@semantic-release/commit-analyzer": "^8.0.1",
+		"@semantic-release/npm": "^5.3.4",
+		"@semantic-release/release-notes-generator": "^9.0.1",
+		"conventional-changelog-peakfijn": "^2.1.0",
+		"release-rules-peakfijn": "^2.1.0",
+		"semantic-release": "^15.13.31",
+		"semantic-release-git-branches": "^1.2.1"
+	},
+	"devDependencies": {
+		"@types/jest": "^25.1.4",
+		"@types/lodash": "^4.14.149",
+		"@types/semantic-release": "^15.13.1",
+		"lodash": "^4.17.15"
+	}
+}
