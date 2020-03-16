@@ -15,38 +15,51 @@ on:
     - cron: '0 8 * * 1'
 jobs:
   backend:
-    name: Install, validate and build
+    name: Validate backend
     runs-on: ubuntu-latest
     strategy:
       matrix:
         php: [7.3, 7.4]
         template: [project]
+    env:
+      directory: templates/${{ matrix.template }}
     steps:
+      - uses: actions/checkout@v1
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          tools: composer, phpcs, phpunit
-      - run: composer install
-        working-directory: templates/${{ matrix.template }}
+          tools: composer
+      - run: composer global require hirak/prestissimo
+        working-directory: ${{ env.directory }}
+      - run: composer install --no-progress --no-suggest
+        working-directory: ${{ env.directory }}
+      - run: cp .env.example .env
+        working-directory: ${{ env.directory }}
+      - run: php artisan key:generate
+        working-directory: ${{ env.directory }}
       - run: composer lint
-        working-directory: templates/${{ matrix.template }}
+        working-directory: ${{ env.directory }}
       - run: composer test
-        working-directory: templates/${{ matrix.template }}
+        working-directory: ${{ env.directory }}
   frontend:
-    name: Install, validate and build
+    name: Validate frontend
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [10, 12]
         template: [project]
+    env:
+      directory: templates/${{ matrix.template }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
+      - run: ls -la
+        working-directory: ${{ env.directory }}
       - run: npm ci
-        working-directory: templates/${{ matrix.template }}
-      - run: npm run lint
-        working-directory: templates/${{ matrix.template }}
+        working-directory: ${{ env.directory }}
+      - run: npm run lint -- --no-eslintrc --config ./.eslintrc.js
+        working-directory: ${{ env.directory }}
       - run: npm run test
-        working-directory: templates/${{ matrix.template }}
+        working-directory: ${{ env.directory }}
