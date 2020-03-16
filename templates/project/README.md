@@ -2,7 +2,11 @@
 
 - [Project Notes](#markdown-header-project-notes)
 - [Getting started](#markdown-header-getting-started)
+- [Performance gains](#markdown-header-performance-gains)
+- [Troubleshooting project](#markdown-header-troubleshooting-project)
 - [Deploy to Heroku](#markdown-header-deploy-to-heroku)
+- [Troubleshooting Heroku](#markdown-header-troubleshooting-heroku)
+- ["SSH" into Heroku](#markdown-header-ssh-into-heroku)
 - [Local to web](#markdown-local-to-web)
 - [Coding rules](#markdown-header-coding-rules)
 - [Commit guidelines](#markdown-header-commit-guidelines)
