@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "d40766c3dab6fd1d0bf16b33da6e1352",
@@ -3562,16 +3562,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "b8dbf7791c81619161270d580a64a30bad41b832"
+                "reference": "67f1677954ad33ca6b77f2c41cf43a58624f27fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/b8dbf7791c81619161270d580a64a30bad41b832",
-                "reference": "b8dbf7791c81619161270d580a64a30bad41b832",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/67f1677954ad33ca6b77f2c41cf43a58624f27fc",
+                "reference": "67f1677954ad33ca6b77f2c41cf43a58624f27fc",
                 "shasum": ""
             },
             "require": {
@@ -3593,7 +3593,7 @@
                 "orchestra/testbench": "5.0"
             },
             "suggest": {
-                "laravel/telescope": "^2.0"
+                "laravel/telescope": "^3.1"
             },
             "type": "library",
             "extra": {
@@ -3629,7 +3629,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-03-05T12:32:22+00:00"
+            "time": "2020-03-18T19:20:44+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -3880,6 +3880,7 @@
             ],
             "description": "This tool check syntax of PHP files about 20x faster than serial check.",
             "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
+            "abandoned": "php-parallel-lint/php-parallel-lint",
             "time": "2018-02-24T15:31:20+00:00"
         },
         {
