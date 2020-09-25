@@ -1977,16 +1977,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.0.5",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d29e2d36941de13600c399e393a60b8cfe59ac49"
+                "reference": "5fa1caadc8cdaa17bcfb25219f3b53fe294a9935"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d29e2d36941de13600c399e393a60b8cfe59ac49",
-                "reference": "d29e2d36941de13600c399e393a60b8cfe59ac49",
+                "url": "https://api.github.com/repos/symfony/console/zipball/5fa1caadc8cdaa17bcfb25219f3b53fe294a9935",
+                "reference": "5fa1caadc8cdaa17bcfb25219f3b53fe294a9935",
                 "shasum": ""
             },
             "require": {
@@ -2049,7 +2049,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-02-24T15:05:31+00:00"
+            "time": "2020-03-30T11:42:42+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -4125,28 +4125,28 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v4.1.3",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "a430bce33d1ad07f756ea6cae9afce9ef8670b42"
+                "reference": "d50490417eded97be300a92cd7df7badc37a9018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/a430bce33d1ad07f756ea6cae9afce9ef8670b42",
-                "reference": "a430bce33d1ad07f756ea6cae9afce9ef8670b42",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/d50490417eded97be300a92cd7df7badc37a9018",
+                "reference": "d50490417eded97be300a92cd7df7badc37a9018",
                 "shasum": ""
             },
             "require": {
                 "facade/ignition-contracts": "^1.0",
                 "filp/whoops": "^2.4",
-                "jakub-onderka/php-console-highlighter": "^0.4",
                 "php": "^7.2.5",
                 "symfony/console": "^5.0"
             },
             "require-dev": {
                 "facade/ignition": "^2.0",
                 "fideloper/proxy": "^4.2",
+                "friendsofphp/php-cs-fixer": "^2.16",
                 "fruitcake/laravel-cors": "^1.0",
                 "laravel/framework": "^7.0",
                 "laravel/tinker": "^2.0",
@@ -4191,7 +4191,7 @@
                 "php",
                 "symfony"
             ],
-            "time": "2020-03-07T12:46:00+00:00"
+            "time": "2020-04-04T19:56:08+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -5578,16 +5578,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.5.4",
+            "version": "3.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "dceec07328401de6211037abbb18bda423677e26"
+                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/dceec07328401de6211037abbb18bda423677e26",
-                "reference": "dceec07328401de6211037abbb18bda423677e26",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
+                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
                 "shasum": ""
             },
             "require": {
@@ -5625,7 +5625,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2020-01-30T22:20:29+00:00"
+            "time": "2020-04-17T01:09:41+00:00"
         },
         {
             "name": "symfony/http-client",
