@@ -21,7 +21,7 @@
 		"commit": "git-cz"
 	},
 	"dependencies": {
-		"lodash": "^4.17.13",
+		"lodash": "^4.17.21",
 		"axios": "^0.21.1"
 	},
 	"devDependencies": {
